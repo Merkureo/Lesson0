@@ -32,15 +32,21 @@ class Shop:
     __file_name = 'products.txt'
 
     def get_products(self):
-        file = open(self.__file_name, 'r')
-        result = file.read()
-        file.close()
+        # file = open(self.__file_name, 'r')
+        # result = file.read()
+        # file.close()
+        with open(self.__file_name, 'r') as file:
+            result = file.read()
         return result
 
     def add(self, *products):
-        file = open(self.__file_name, 'a+')
-        file.seek(0)
-        result = file.read()
+        # file = open(self.__file_name, 'a+')
+        # file.seek(0)
+        # result = file.read()
+        # file.close()
+        with open(self.__file_name, 'a+') as file:
+            file.seek(0)
+            result = file.read()
         for product in products:
             if str(product) in result:
                 print(f'Продукт {product.name} уже есть в магазине')
