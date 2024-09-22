@@ -47,11 +47,11 @@ class Shop:
         with open(self.__file_name, 'a+') as file:
             file.seek(0)
             result = file.read()
-        for product in products:
-            if str(product) in result:
-                print(f'Продукт {product.name} уже есть в магазине')
-            else:
-                file.write(str(product) + '\n')
+            for product in products:
+                if str(product) in result:
+                    print(f'Продукт {product.name} уже есть в магазине')
+                else:
+                    file.write(str(product) + '\n')
 
 
 if __name__ == "__main__":
